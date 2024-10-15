@@ -74,3 +74,20 @@ vacation = vacation_for_employees(df)
 print(colored("\n№4",'light_red'))
 print(colored("Сотрудники, отработавшие больше 6 месяцев:", 'light_red'))
 print(vacation)
+
+
+# №5 Реализуйте функции записи в csv и json.
+def save_to_csv(df, filename):
+    df.to_csv(filename, index=False)
+    print(colored(f"Данные сохранены в файл {filename}", 'green'))
+
+dfj = df.to_json()
+def save_to_json(df, filename):
+    with open(filename, 'w') as json_file:
+        json.dump(dfj, json_file)
+    print(colored(f"Данные сохранены в файл {filename}", 'green'))
+
+
+print(colored("\n№5",'light_red'))
+save_to_csv(programmer_bonus, 'programmer_bonus.csv')
+save_to_json(programmer_bonus, 'programmer_bonus.json')
